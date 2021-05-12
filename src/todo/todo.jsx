@@ -4,11 +4,22 @@ import TodoForm from './todoFrom'
 import TodoList from './todoList'
 
 export default class Todo extends Components {
+    constructor(props) {
+        super(props)
+        this.state = { description: '', list: [] }
+        this.handleAdd = this.handleAdd.bind(this)
+    }
+
+    handleAdd() {
+
+    }
+    
     render() {
         return (
             <div>
                 <PageHeader name="Task" small="Register" />
-                <TodoForm />
+                <TodoForm description={this.state.description} 
+                    handleAdd={this.handleAdd} />
                 <TodoList />
             </div>
         )
