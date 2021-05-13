@@ -6,7 +6,9 @@ export default props => (
     <div role="form" className="todoForm">
 
         <Grid clos="12, 9, 10">
-            <input id="description" className="form-control" placeholder="Add a task" 
+            <input id="description" className="form-control" 
+                placeholder="Add a task" 
+                onChange={props.handleChange}
                 value={props.description}></input>
         </Grid>
         <Grid clos="12, 9, 10">
