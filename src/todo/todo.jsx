@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import PageHeader from '../template/pageHeader'
-import TodoForm from './todoFrom'
+import TodoForm from './todoForm'
 import TodoList from './todoList'
 
-const URL = 'http://localhost:3003/api/all'
+const URL = 'http://localhost:3003/api/todos'
 
-export default class Todo extends Components {
+export default class Todo extends Component {
     constructor(props) {
         super(props)
         this.state = { description: '', list: [] }
@@ -17,12 +17,12 @@ export default class Todo extends Components {
     }
 
     refresh() {
-        axios.get(`${URL}?short=-createdAt`)
-            .then(resp => this.setState({...this.state, description : '', list: resp.data}))
+        axios.get(`${URL}?sort=-createdAt`)
+            .then(resp => this.setState({ ...this.state, description : '', list: resp.data }))
     }
 
     handleChange(e) {
-        this.setState({...this.state, description: e.target.value})
+        this.setState({ ...this.state, description: e.target.value })
     }
 
     handleAdd() {

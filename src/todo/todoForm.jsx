@@ -5,14 +5,14 @@ import IconButton from '../template/iconButton'
 export default props => (
     <div role="form" className="todoForm">
 
-        <Grid clos="12, 9, 10">
+        <Grid clos="12 9 10">
             <input id="description" className="form-control" 
                 placeholder="Add a task" 
                 onChange={props.handleChange}
                 value={props.description}></input>
         </Grid>
-        <Grid clos="12, 9, 10">
-            <IconButton style="primay" icon='plus' 
+        <Grid clos="12 3 2">
+            <IconButton style="primary" icon='plus' 
                 onClick={props.handleAdd} />
         </Grid>
     </div>
