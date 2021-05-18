@@ -6,3 +6,11 @@
     text-decoration: line-through;
     color: #777;
 }
+
+.tableAction {
+    width: 105px;
+}
+
+.todoFrom {
+    padding-bottom: 60px;
+}
