@@ -4,13 +4,13 @@ import IconButton from '../template/iconButton'
 
 export default props => {
     const keyHandle = (e) => {
-        if(e.key === 'Enter') {
+        if (e.key === 'Enter') {
             e.shiftKey ? props.handleSearch() : props.handleAdd()
         } else if (e.key === 'Espace') {
             props.headleClear()
         }
     }
-    
+
     return (
         <div role="form" className="todoForm">
 
