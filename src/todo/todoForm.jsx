@@ -22,7 +22,7 @@ const TodoForm = props => {
                     placeholder="Add a task"
                     onChange={props.changeDescription}
                     onKeyUp={keyHandler}
-                    value={props.description}></input>
+                    value={props.description} />
             </Grid>
             <Grid cols="12 3 2">
                 <IconButton style="primary" icon="plus"
@@ -30,7 +30,8 @@ const TodoForm = props => {
                 <IconButton style="info" icon="search"
                     onClick={props.handleSearch} />
                 <IconButton style="default" icon="close"
-                    onClick={props.headleClear} />
+                    onClick={props.headleClear}
+                    />
             </Grid>
         </div>
     )
