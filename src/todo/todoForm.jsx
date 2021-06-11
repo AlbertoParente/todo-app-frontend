@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreatores } from 'redux'
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
-import { changeDescription } from './todoActions'
+import { changeDescription, search } from './todoActions'
+
+class TodoForm extends Component {
+    constructor(props) {
+        super(props)
+    }
+}
 
 const TodoForm = props => {
     const keyHandler = (e) => {
@@ -38,6 +44,6 @@ const TodoForm = props => {
 }
 
 const mapStateToProps = state => ({ description: state.todo.description })
-const mapDispatchToProps = dispatch => bindActionCreatores({ changeDescription }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreatores({ changeDescription, search }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)
