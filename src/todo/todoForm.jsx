@@ -8,39 +8,44 @@ import { changeDescription, search } from './todoActions'
 class TodoForm extends Component {
     constructor(props) {
         super(props)
+        this.keyHandler = this.keyHandler.bind(this)
     }
-}
 
-const TodoForm = props => {
-    const keyHandler = (e) => {
-        if(e.key === 'Enter') {
-            e.shiftKey ? props.handleSearch() : props.handleAdd()
-        } else if(e.key === 'Espace') {
+    componentWillMount() {
+        this.props.search()
+    }
+
+    keyHandler(e) {
+        if (e.key === 'Enter') {
+            e.shiftKey ? this.props.handleSearch() : this.props.handleAdd()
+        } else if (e.key === 'Espace') {
             props.headleClear()
         }
     }
 
-    return (
-        <div role="form" className="todoForm">
+    render() {
+        return (
+            <div role="form" className="todoForm">
 
-            <Grid cols="12 9 10">
-                <input id="description" className="form-control"
-                    placeholder="Add a task"
-                    onChange={props.changeDescription}
-                    onKeyUp={keyHandler}
-                    value={props.description} />
-            </Grid>
-            <Grid cols="12 3 2">
-                <IconButton style="primary" icon="plus"
-                    onClick={props.handleAdd} />
-                <IconButton style="info" icon="search"
-                    onClick={props.handleSearch} />
-                <IconButton style="default" icon="close"
-                    onClick={props.headleClear}
+                <Grid cols="12 9 10">
+                    <input id="description" className="form-control"
+                        placeholder="Add a task"
+                        onChange={this.props.changeDescription}
+                        onKeyUp={this.props.keyHandler}
+                        value={this.props.description} />
+                </Grid>
+                <Grid cols="12 3 2">
+                    <IconButton style="primary" icon="plus"
+                        onClick={this.props.handleAdd} />
+                    <IconButton style="info" icon="search"
+                        onClick={this.props.handleSearch} />
+                    <IconButton style="default" icon="close"
+                        onClick={this.props.headleClear}
                     />
-            </Grid>
-        </div>
-    )
+                </Grid>
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = state => ({ description: state.todo.description })
