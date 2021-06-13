@@ -7,7 +7,7 @@ export const changesDecription = event => ({
     payload: event.target.value
 })
 
-export const search() {
+export const search = () => {
     const request = axios.get(`${URL}?sort=-createdAt`)
 
     return {

@@ -1,17 +1,6 @@
 const INITIAL_STATE = {
-    description: 'Study',
-    list: [{
-        _id: 1,
-        description: 'Study React...!',
-        done: true
-    }, {
-        _id: 2,
-        description: 'Study Angular...!',
-        done: false
-    }, {
-        _id: 3,
-        description: 'Study Docker...!'
-    }]
+    description: '',
+    list: []
 }
 
 export default (state = INITIAL_STATE, action) => {
