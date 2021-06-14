@@ -15,3 +15,12 @@ export const search = () => {
         payload: reques
     }
 }
+
+export const add = (description) => {
+    const request = axios.post(URL, { description })
+
+    return {
+        type: 'TODP_ADDED',
+        payload: request
+    }
+}
