@@ -16,14 +16,17 @@ class TodoForm extends Component {
     }
 
     keyHandler(e) {
+        const { ...add, search, description } = this.props
         if (e.key === 'Enter') {
-            e.shiftKey ? this.props.handleSearch() : this.props.handleAdd()
+            e.shiftKey ? search() : add(description)
         } else if (e.key === 'Espace') {
             props.headleClear()
         }
     }
 
     render() {
+        const { ...add, search, description } = this.props
+
         return (
             <div role="form" className="todoForm">
 
@@ -36,9 +39,9 @@ class TodoForm extends Component {
                 </Grid>
                 <Grid cols="12 3 2">
                     <IconButton style="primary" icon="plus"
-                        onClick={this.props.handleAdd} />
+                        onClick={() => add(description)} />
                     <IconButton style="info" icon="search"
-                        onClick={this.props.handleSearch} />
+                        onClick={() => search()} />
                     <IconButton style="default" icon="close"
                         onClick={this.props.headleClear}
                     />
