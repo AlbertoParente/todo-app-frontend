@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
 
 const URL = 'http://localhost:3003/api/todos'
 
@@ -15,12 +16,11 @@ export const search = () => {
         payload: reques
     }
 }
-
+ 
 export const add = (description) => {
-    const request = axios.post(URL, { description })
-
-    return [
-        { type: 'TODP_ADDED', payload: request }
-        search()
-    ]
+    return dispatch => {
+        axios.post(URL, { description })
+            .then(res => dispatch({ type: 'TODP_ADDED', payload: resp.data }))
+            .then(resp => deispatch(search()))
+    }
 }
