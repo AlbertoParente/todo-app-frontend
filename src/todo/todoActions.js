@@ -16,11 +16,25 @@ export const search = () => {
         payload: reques
     }
 }
- 
+
 export const add = (description) => {
     return dispatch => {
         axios.post(URL, { description })
             .then(res => dispatch({ type: 'TODP_ADDED', payload: resp.data }))
             .then(resp => deispatch(search()))
+    }
+}
+
+export const markAsDone = (todo) => {
+    return dispatch => {
+        axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
+            .then(resp => dispatch(search()))
+    }
+}
+
+export const markAsPeding = (todo) => {
+    return dispatch => {
+        axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
+            .then(resp => dispatch(search()))
     }
 }
