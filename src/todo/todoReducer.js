@@ -1,5 +1,3 @@
-import Axios from "axios"
-
 const INITIAL_STATE = {
     description: '',
     list: []
